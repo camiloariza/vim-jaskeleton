@@ -1,7 +1,8 @@
 " jaskeleton - just another skeleton plugin!
 "
-"  author: camilo ariza <camilo.ariza@protonmail.com>
-" created: Sat 18 Apr 2020 10:14:01 PM -03
+"   author: camilo ariza <camilo.ariza@protonmail.com>
+"  created: Sat 18 Apr 2020 22:14:01 -0300
+" modified: Sun 19 Apr 2020 22:36:59 -0300
 
 if !exists('g:jaskeleton_template_dir')
     let g:jaskeleton_template_dir = expand('<sfile>:p:h:h') . '/template'
@@ -12,17 +13,9 @@ if !exists('g:jaskeleton_template_dir')
     endif
 endif
 
-if !exists('g:jaskeleton_user')
-    let g:jaskeleton_user = 'undefined'
-endif
-
-if !exists('g:jaskeleton_email')
-    let g:jaskeleton_email = 'undefined'
-endif
-
-if !exists('g:jaskeleton_date_fmt')
-    let g:jaskeleton_date_fmt = '%a %d %b %Y %H:%M:%S %z'
-endif
+let g:jaskeleton_user = get(g:, 'jaskeleton_user', 'undefined')
+let g:jaskeleton_email = get(g:, 'jaskeleton_email', 'undefined')
+let g:jaskeleton_date_fmt = get(g:, 'jaskeleton_date_fmt', '%a %d %b %Y %H:%M:%S %z')
 
 " modified tags per filetype
 let g:jaskeleton_mod_tag_py = '__modified__ = "{DATE}"'
