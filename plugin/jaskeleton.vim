@@ -25,7 +25,8 @@ if !exists('g:jaskeleton_date_fmt')
 endif
 
 " modified tags per filetype
-let g:jaskeleton_mod_tag_py = '__modified__'
+let g:jaskeleton_mod_tag_py = '__modified__ = "{DATE}"'
+let g:jaskeleton_mod_tag_vim = '" modified: {DATE}'
 
 " read template on new buffer
 autocmd BufNewFile * silent! call jaskeleton#read_template()
@@ -52,11 +53,12 @@ function! jaskeleton#update_modified()
         return
     endif
 
+    let l:tag = get(g:, 'jaskeleton_mod_tag_' . expand('%:e'))
+    let l:expr = '^'.substitute(tag, '{DATE}', '.*', 'g').'$'
+    let l:date = strftime(get(g:, 'jaskeleton_date_fmt'))
+    let l:new = substitute(tag, '{DATE}', date, 'g')
+
     let l:winview = winsaveview()
-
-    let l:mod_tag = get(g:, 'jaskeleton_mod_tag_' . expand('%:e'))
-    let l:mod_tag_r = '^' . mod_tag  . ' = ".*"$'
-    silent! execute '/'.mod_tag_r.'/s/'. mod_tag_r .'/' . mod_tag . ' = "' . strftime(g:jaskeleton_date_fmt) . '"'
-
+    silent! execute '/'.expr.'/s/'.expr.'/'.new
     call winrestview(l:winview)
 endfunction
