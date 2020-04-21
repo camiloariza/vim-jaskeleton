@@ -53,3 +53,5 @@ setting `jaskeleton_date_fmt` to `'%Y/%m/%d'` will format the date as
 - [ ] get modified date tag from template
 - [ ] disable plugin command
 - [ ] documentation
+  - [ ] use case animations
+  - [ ] list similar plugins
