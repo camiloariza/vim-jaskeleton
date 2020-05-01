@@ -1,6 +1,5 @@
 " doc string
-"
-"   author: [:VIM_EVAL:]jaskeleton_user[:END_EVAL:] <[:VIM_EVAL:]jaskeleton_email[:END_EVAL:]>
-"  created: [:VIM_EVAL:]jaskeleton_date[:END_EVAL:]
-" modified: [:VIM_EVAL:]jaskeleton_date[:END_EVAL:]
+" Author:   [:VIM_EVAL:]jaskeleton_user[:END_EVAL:] <[:VIM_EVAL:]jaskeleton_email[:END_EVAL:]>
+" Created:  [:VIM_EVAL:]jaskeleton_date[:END_EVAL:]
+" Modified: [:VIM_EVAL:]jaskeleton_date[:END_EVAL:]
 
